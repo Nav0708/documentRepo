@@ -22,7 +22,6 @@ This Document Repository Web Application is designed to provide a seamless platf
 
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
-- **Authentication:** JWT (JSON Web Tokens)
 
 
 ### Installation:
@@ -60,10 +59,6 @@ This Document Repository Web Application is designed to provide a seamless platf
 
 ### Usage:
 
-- **API Documentation:** Access the API documentation and test endpoints using Swagger UI by navigating to `http://localhost:3000/api-docs` after starting the server.
-
-- **Authentication:** Register new users or authenticate existing users to gain access to CRUD operations.
-
 - **CRUD Operations:** Perform CRUD operations on documents using the provided API endpoints.
 
 ---
@@ -78,13 +73,6 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 4. Commit your changes (`git commit -am 'Add new feature'`).
 5. Push to the branch (`git push origin feature/new-feature`).
 6. Create a new Pull Request.
-
----
-
-### License:
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ---
 
 ### Author:
