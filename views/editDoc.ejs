@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Document - Doument Repository</title>
+  </head>
+  <body>
+    <h3>Edit the Document </h3>
+    <form action="/document/editDocument/<%= mongo_id %>" method="post">
+        <div>
+            <div>
+                <label for="docId"><strong>Document Id: </strong>  <%= id %></label><br/>
+                <label for="docTitle">Document Title :  <%= title %></label>
+                <br/>
+            </div>
+            <br/>
+            <div>
+                <label for="docContent">Enter the content here(Upto 500 words)</label><br/>
+                    <textarea id="docContent" name="docContent" rows="10" cols="50" maxlength="1000"><%= content %></textarea>
+            </div>
+            <br/>
+            <div>   
+            <input class="save" type="submit" value="Save">
+            </div>
+            <p><%= update %></p><div></div>
+        </div>
+      </form>
+      <button id="back">Back</button>
+      <script>
+      document.getElementById('back').addEventListener('click', function() {
+        window.location.href = "/";
+      });
+      </script> 
+  </body>
+</html>

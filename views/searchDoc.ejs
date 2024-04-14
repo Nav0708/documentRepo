@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %>-Document Repository</title>
+  </head>
+  <body>
+    <form action="/viewDocument/:id" method="get">
+      <h3><strong><%= id %>.   <span><%= title %></span></strong></h3>
+      <p><%= content %></p>
+      <br/><br/>
+      <p>Last updated on: <%= time.toLocaleString() %></p>
+    </form>
+    <button id="back">Back</button>
+    <script>
+      document.getElementById('back').addEventListener('click', function() {
+        window.location.href = "/";
+      });
+    </script>
+  </body>
+</html>

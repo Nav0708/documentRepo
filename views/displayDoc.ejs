@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+      }
+
+      th {
+        padding: 8px;
+        text-align: left;
+      }
+
+      td {
+        padding: 8px;
+        text-align: justify;
+      }
+
+      .table-row {
+        display: flex;
+      }
+
+      .title {
+        flex: 1;
+      }
+    </style>
+    <title>Documents - Document Repository</title>
+  </head>
+  <body>
+    <h1>List of Documents</h1>
+    <table>
+      <thead>
+        <tr>
+          <th><strong>Id  Title</strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% docList.forEach(document => { %>
+          <tr class="table-row">
+            <td ><%= document.docId %></td>
+            <td class="title"><%= document.docTitle %></td>
+            <td>
+              <a href="/document/editDocument/<%= document.uid %>">
+                <i style="font-size:24px" class="fa">&#xf044;</i>
+              </a>
+            </td>
+            <td>
+              <button class="delete" data-uid="<%= document.uid %>">
+                <i class="material-icons">&#xe872;</i></button>
+            </td>
+            <td>
+              <a href="/document/viewDocument/<%= document.uid %>"><strong>View</strong></a>
+            </td>
+            <td>Last updated <%= document.timestamps.toLocaleString() %></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+    <button id="back">Back</button>
+    <script>
+      document.getElementById('back').addEventListener('click', function () {
+        window.location.href = "/";
+      });
+      const deleteButtons = document.querySelectorAll('.delete');
+                deleteButtons.forEach(deleteButton => {
+                  deleteButton.addEventListener('click', async function () {
+                    const uid = this.getAttribute('data-uid');
+                    await fetch(`/document/deleteDocument/${uid}`, {
+                      method: 'DELETE'
+                    });
+                    const tableRow = this.parentElement.parentElement; // Get the parent <tr>
+                     const tableBody = tableRow.parentElement; // Get the parent <tbody>
+                    tableBody.removeChild(tableRow);
+                  });
+        });
+
+    </script>
+  </body>
+</html>

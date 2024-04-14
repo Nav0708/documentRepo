@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add New Document - Doument Repository</title>
+  </head>
+  <body>
+    <h3>Add a new document to the Document Repository</h3>
+    <form action="/document/addDocuments" method="post">
+        <div>
+            <div>
+                <label for="docId">Document Id</label>
+                <input id="docId" name="docId" type="text" placeholder="Should be numbers: 1,2,3..." required><br/>
+                <br/><label for="docTitle">Document Title</label>
+                <input id="docTitle" name="docTitle" type="text" placeholder="document title" required><br/>
+            </div>
+            <br/>
+            <div>
+                <label for="docContent">Enter the content here(Upto 500 words)</label><br/><br/>
+                    <textarea id="docContent" name="docContent" rows="15" cols="60" maxlength="1000">Enter your text here</textarea>
+            </div>
+            <br/>
+            <div>   
+            <input type="submit" value="Add">
+            </div>
+        </div>
+      </form>
+      <br/>
+      <div><button id="back">Back</button></div>
+    <script>
+      document.getElementById('back').addEventListener('click', function() {
+          history.back();
+      });
+    </script>
+  </body>
+</html>
+
